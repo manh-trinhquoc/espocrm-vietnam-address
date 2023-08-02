@@ -1,4 +1,4 @@
-define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'views/fields/varchar'], function (Dep, Varchar) {
+define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'views/fields/varchar', 'vietnam-address:libs/admin-unit'], function (Dep, Varchar, AdminUnit) {
 
     /**
      * An address field.
@@ -71,6 +71,12 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
                 data.cityMaxLength = this.cityMaxLength;
                 data.districtMaxLength = this.districtMaxLength;
                 data.wardMaxLength = this.wardMaxLength;
+                data.cityOptions = AdminUnit.getCityList();
+                console.log(data.cityOptions);
+                data.districtOptions = AdminUnit.getDistrictListOfCity(data.cityValue);
+                console.log(data.districtOptions);
+                data.wardOptions = AdminUnit.getWardListOfDistrict(data.cityValue, data.districtValue);
+                console.log(data.wardOptions);
             }
 
             return data;
@@ -193,53 +199,9 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
                     this.trigger('change');
                 });
 
-                console.log("edit city list ở đây")
-                // var cityList = this.getConfig().get('addressCityList') || [];
 
-                // if (cityList.length) {
-                //     this.$city.autocomplete({
-                //         minChars: 0,
-                //         lookup: cityList,
-                //         maxHeight: 200,
-                //         formatResult: (suggestion) => {
-                //             return this.getHelper().escapeString(suggestion.value);
-                //         },
-                //         lookupFilter: (suggestion, query, queryLowerCase) => {
-                //             if (suggestion.value.toLowerCase().indexOf(queryLowerCase) === 0) {
-                //                 if (suggestion.value.length === queryLowerCase.length) {
-                //                     return false;
-                //                 }
 
-                //                 return true;
-                //             }
 
-                //             return false;
-                //         },
-                //         onSelect: () => {
-                //             this.trigger('change');
-
-                //             this.$city.focus();
-                //         },
-                //     });
-
-                //     this.$city.on('focus', () => {
-                //         if (this.$city.val()) {
-                //             return;
-                //         }
-
-                //         this.$city.autocomplete('onValueChange');
-                //     });
-
-                //     this.once('render', () => {
-                //         this.$city.autocomplete('dispose');
-                //     });
-
-                //     this.once('remove', () => {
-                //         this.$city.autocomplete('dispose');
-                //     });
-
-                //     this.$city.attr('autocomplete', 'espo-city');
-                // }
 
                 this.controlStreetTextareaHeight();
 
