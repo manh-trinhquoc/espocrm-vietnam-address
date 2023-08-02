@@ -16,14 +16,13 @@ class AddressFactory implements ValueFactory
         return true;
     }
 
-    public function createFromEntity(Entity $entity, string $field): Address
+    public function createFromEntity(Entity $entity, string $field): VietnamAddress
     {
         return (new AddressBuilder())
            ->setStreet($entity->get($field . 'Street'))
            ->setCity($entity->get($field . 'City'))
-           ->setCountry($entity->get($field . 'Country'))
-           ->setState($entity->get($field . 'State'))
-           ->setPostalCode($entity->get($field . 'PostalCode'))
+           ->setDistrict($entity->get($field . 'District'))
+           ->setWard($entity->get($field . 'Ward'))
            ->build();
     }
 }

@@ -13,22 +13,19 @@ class VietnamAddress
 {
     private $street = null;
     private $city = null;
-    private $country = null;
-    private $state = null;
-    private $postalCode = null;
+    private $district = null;
+    private $ward = null;
 
     public function __construct(
-        ?string $country = null,
-        ?string $state = null,
-        ?string $city = null,
         ?string $street = null,
-        ?string $postalCode = null
+        ?string $city = null,
+        ?string $district = null,
+        ?string $ward = null
     ) {
-        $this->country = $country;
-        $this->state = $state;
-        $this->city = $city;
         $this->street = $street;
-        $this->postalCode = $postalCode;
+        $this->city = $city;
+        $this->district = $district;
+        $this->ward = $ward;
     }
 
     /**
@@ -48,27 +45,19 @@ class VietnamAddress
     }
 
     /**
-     * Whether has a country.
+     * Whether has a District.
      */
-    public function hasCountry(): bool
+    public function hasDistrict(): bool
     {
-        return $this->country !== null;
+        return $this->district !== null;
     }
 
     /**
-     * Whether has a state.
+     * Whether has a Ward.
      */
-    public function hasState(): bool
+    public function hasWard(): bool
     {
-        return $this->state !== null;
-    }
-
-    /**
-     * Whether has a postal code.
-     */
-    public function hasPostalCode(): bool
-    {
-        return $this->postalCode !== null;
+        return $this->ward !== null;
     }
 
     /**
@@ -88,28 +77,21 @@ class VietnamAddress
     }
 
     /**
-     * Get a country.
+     * Get a District.
      */
-    public function getCountry(): ?string
+    public function getDistrict(): ?string
     {
-        return $this->country;
+        return $this->district;
     }
 
     /**
-     * Get a state.
+     * Get a Ward.
      */
-    public function getState(): ?string
+    public function getWard(): ?string
     {
-        return $this->state;
+        return $this->ward;
     }
 
-    /**
-     * Get a postal code.
-     */
-    public function getPostalCode(): ?string
-    {
-        return $this->postalCode;
-    }
 
     /**
      * Clone with a street.
@@ -138,39 +120,26 @@ class VietnamAddress
     }
 
     /**
-     * Clone with a country.
+     * Clone with a District.
      */
-    public function withCountry(?string $country): self
+    public function withDistrict(?string $district): self
     {
         $newAddress = self::createBuilder()
             ->clone($this)
-            ->setCountry($country)
+            ->setDistrict($district)
             ->build();
 
         return $newAddress;
     }
 
     /**
-     * Clone with a state.
+     * Clone with a Ward.
      */
-    public function withState(?string $state): self
+    public function withWard(?string $ward): self
     {
         $newAddress = self::createBuilder()
             ->clone($this)
-            ->setState($state)
-            ->build();
-
-        return $newAddress;
-    }
-
-    /**
-     * Clone with a postal code.
-     */
-    public function withPostalCode(?string $postalCode): self
-    {
-        $newAddress = self::createBuilder()
-            ->clone($this)
-            ->setPostalCode($postalCode)
+            ->setWard($ward)
             ->build();
 
         return $newAddress;

@@ -15,7 +15,7 @@
             "type": "varchar",
             "trim": true,
             "maxLength": 25,
-            "view": "views/fields/vietnam-address-city",
+            "view": "vietnam-address:views/fields/vietnam-address-city",
             "customizationOptionsDisabled": true,
             "pattern": "$noBadCharacters"
         },
@@ -23,15 +23,15 @@
             "type": "varchar",
             "trim": true,
             "maxLength": 25,
-            "view": "views/fields/vietnam-address-district",
+            "view": "vietnam-address:views/fields/vietnam-address-district",
             "customizationOptionsDisabled": true,
             "pattern": "$noBadCharacters"
         },
         "ward": {
             "type": "varchar",
             "trim": true,
-            "maxLength": 255,
-            "view": "views/fields/vietnam-address-ward",
+            "maxLength": 25,
+            "view": "vietnam-address:views/fields/vietnam-address-ward",
             "customizationOptionsDisabled": true,
             "pattern": "$noBadCharacters"
         },
