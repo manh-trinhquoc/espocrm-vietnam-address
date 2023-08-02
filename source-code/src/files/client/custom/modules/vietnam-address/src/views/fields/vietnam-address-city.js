@@ -1,3 +1,4 @@
+console.log("vietnam-address:views/fields/vietnam-address-city")
 define('vietnam-address:views/fields/vietnam-address-city', ['views/fields/varchar'], function (Dep) {
 
     return Dep.extend({

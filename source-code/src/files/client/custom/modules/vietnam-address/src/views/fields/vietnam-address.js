@@ -10,7 +10,7 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
      */
     return Dep.extend( /** @lends module:views/fields/address.Class# */ {
 
-        type: 'address',
+        type: 'vietnam-address',
 
         listTemplate: 'vietnam-address:fields/address/detail',
         detailTemplate: 'vietnam-address:fields/address/detail',
@@ -347,8 +347,11 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
             data[this.streetField] = this.$street.val().toString().trim();
             console.log('cityField')
             data[this.cityField] = this.$city.val().toString().trim();
+            console.log('districtField')
             data[this.districtField] = this.$district.val().toString().trim();
+            console.log('wardField')
             data[this.wardField] = this.$ward.val().toString().trim();
+            console.log('all field')
 
             let attributeList = [
                 this.streetField,
