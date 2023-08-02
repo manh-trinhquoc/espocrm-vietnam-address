@@ -15,7 +15,7 @@
         "language": "en_US",
         "defaultOwner": "www-data",
         "defaultGroup": "www-data",
-        "siteUrl": "http://localhost/espocrm-vietnam-address/site",
+        "siteUrl": "http://localhost/espocrm-vietnam-address/source-code/site",
         "adminUsername": "admin",
         "adminPassword": "1"
     }

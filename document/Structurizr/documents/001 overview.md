@@ -4,7 +4,7 @@
 - Trường gồm 4 trường con:
    
 | field name | Vietnamese | Description | DB type | client style
-| --- | --- | ---
+| --- | --- | --- | --- | ---
 | city | Tỉnh thành | Thành phố Trung ương,Tỉnh | varchar 25 | dropdown list
 | district | Quận huyện | Quận, huyện, thành phố , thị xã | varchar 25 | dropdown list
 | wards | Phường, xã | Phường, xã, thị trấn | varchar 25 | dropdown list

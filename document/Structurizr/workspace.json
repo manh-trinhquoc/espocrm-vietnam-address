@@ -2,13 +2,20 @@
   "id" : 1,
   "name" : "CRM Maple Bear",
   "description" : "Description",
-  "lastModifiedDate" : "2023-08-01T09:40:49Z",
+  "lastModifiedDate" : "2023-08-02T02:35:28Z",
   "properties" : {
     "structurizr.dsl" : "d29ya3NwYWNlICJDUk0gTWFwbGUgQmVhciIgewogICAgIWFkcnMgZGVjaXNpb25zCiAgICAhZG9jcyBkb2N1bWVudHMKICAgIG1vZGVsIHsKICAgICAgICAKICAgIH0KCiAgICB2aWV3cyB7CiAgICAgICAgCgogICAgICAgIHRoZW1lIGRlZmF1bHQKCiAgICAgICAgLy8gdGhlbWVzIGh0dHBzOi8vc3RhdGljLnN0cnVjdHVyaXpyLmNvbS90aGVtZXMvbWljcm9zb2Z0LWF6dXJlLTIwMjEuMDEuMjYvdGhlbWUuanNvbgogICAgfQoKfQo="
   },
   "configuration" : { },
   "model" : { },
   "documentation" : {
+    "sections" : [ {
+      "content" : "# Overview\n\n- Xây dựng trường vietnamAddress có dạng giống trường address mặc định của Espo. \n- Trường gồm 4 trường con:\n   \n| field name | Vietnamese | Description | DB type | client style\n| --- | --- | --- | --- | ---\n| city | Tỉnh thành | Thành phố Trung ương,Tỉnh | varchar 25 | dropdown list\n| district | Quận huyện | Quận, huyện, thành phố , thị xã | varchar 25 | dropdown list\n| wards | Phường, xã | Phường, xã, thị trấn | varchar 25 | dropdown list\n| street | Phố | Địa chỉ chính xác | varchar 255 | typing\n\n# Mô tả người dùng tương tác\n\n- Khi khởi tạo các ô đều có giá trị null. Ô city sẽ có các option để lựa chọn. Các ô khác rỗng không có option gì.\n- Người dùng sẽ phải chọn trường city trước. \n- Khi người dung đã chọn city, ô district sẽ tự động fill quận, huyện của thành phố tương ứng\n- Khi người dùng đã chọn quận, huyện, ô phường xã sẽ tự động fill phường xã của quận huyện tương ứng\n- Ô street cho người dùng điền free style\n\n# Triển khai backend\n\n- Khi người dùng tạo trường có tên NAME, db sẽ generate 4 cột tương ứng để lưu dữ liệu: NAME_city, NAME_district, NAME_wards, NAME_street\n- Dữ liệu tỉnh thành phố lưu dưới dạng json trong folder metadata của plugin. Nguồn dữ liệu lấy từ 2 project:\n    1. https://github.com/daohoangson/dvhcvn  \n    2. https://github.com/madnh/hanhchinhvn\n\n# Triển khai frontend\n\n- Giai đoạn 1 tham khảo trường address\n- Giai đoạn 2 viết = vuejs",
+      "format" : "Markdown",
+      "filename" : "001 overview.md",
+      "order" : 1,
+      "title" : ""
+    } ],
     "decisions" : [ {
       "content" : "# 0. File template\n\nDate: 2023-08-01\n\n## Status\n\nAccepted\n\n## Context\n\n- Bản template để note chung về frame work và để người dùng clone file\n\n## Decision\n- Khi trỏ đến node khác ta dùng cú pháp  title [text](link). Title sẽ bị đè bởi status chuẩn như Accepted, Proposed\n- [Xem các ví dụ khác](https://github.com/npryce/adr-tools/tree/master/tests)\n- We will use Architecture Decision Records, as described by Michael Nygard in [this article](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions)\n\n## Consequences\n",
       "format" : "Markdown",
