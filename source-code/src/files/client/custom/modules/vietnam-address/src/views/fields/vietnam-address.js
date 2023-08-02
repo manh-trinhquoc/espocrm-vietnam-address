@@ -12,10 +12,10 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
 
         type: 'address',
 
-        listTemplate: 'fields/address/detail',
-        detailTemplate: 'fields/address/detail',
-        editTemplate: 'fields/address/edit',
-        searchTemplate: 'fields/address/search',
+        listTemplate: 'vietnam-address:fields/address/detail',
+        detailTemplate: 'vietnam-address:fields/address/detail',
+        editTemplate: 'vietnam-address:fields/address/edit',
+        searchTemplate: 'vietnam-address:fields/address/search',
 
         /**
          * @inheritDoc
@@ -343,7 +343,9 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
         fetch: function () {
             var data = {};
 
+            console.log('streetField')
             data[this.streetField] = this.$street.val().toString().trim();
+            console.log('cityField')
             data[this.cityField] = this.$city.val().toString().trim();
             data[this.districtField] = this.$district.val().toString().trim();
             data[this.wardField] = this.$ward.val().toString().trim();
