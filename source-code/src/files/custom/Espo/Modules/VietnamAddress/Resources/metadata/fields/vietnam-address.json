@@ -1,4 +1,5 @@
 {
+    "view": "vietnam-address:views/fields/vietnam-address",
     "actualFields": [
         "street",
         "city",
@@ -23,7 +24,6 @@
             "type": "varchar",
             "trim": true,
             "maxLength": 25,
-            "view": "vietnam-address:views/fields/vietnam-address-district",
             "customizationOptionsDisabled": true,
             "pattern": "$noBadCharacters"
         },
@@ -31,7 +31,6 @@
             "type": "varchar",
             "trim": true,
             "maxLength": 25,
-            "view": "vietnam-address:views/fields/vietnam-address-ward",
             "customizationOptionsDisabled": true,
             "pattern": "$noBadCharacters"
         },

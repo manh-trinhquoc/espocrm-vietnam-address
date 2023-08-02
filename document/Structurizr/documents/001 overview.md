@@ -5,10 +5,10 @@
    
 | field name | Vietnamese | Description | DB type | client style
 | --- | --- | --- | --- | ---
+| street | Phố | Địa chỉ chính xác | varchar 255 | typing
 | city | Tỉnh thành | Thành phố Trung ương,Tỉnh | varchar 25 | dropdown list
 | district | Quận huyện | Quận, huyện, thành phố , thị xã | varchar 25 | dropdown list
-| wards | Phường, xã | Phường, xã, thị trấn | varchar 25 | dropdown list
-| street | Phố | Địa chỉ chính xác | varchar 255 | typing
+| ward | Phường, xã | Phường, xã, thị trấn | varchar 25 | dropdown list
 
 # Mô tả người dùng tương tác
 
@@ -27,5 +27,8 @@
 
 # Triển khai frontend
 
-- Giai đoạn 1 tham khảo trường address
-- Giai đoạn 2 viết = vuejs
+- Tham khảo trường address
+
+# Tham khảo
+- skipOrmDefs, valueFactoryClassName and attributeExtractorClassName https://forum.espocrm.com/forum/developer-help/84500-metadata-fields-in-espocrm
+- coding rule: https://docs.espocrm.com/development/coding-rules/#11-use-dto-rather-than-associative-arrays-or-stdclass-objects
