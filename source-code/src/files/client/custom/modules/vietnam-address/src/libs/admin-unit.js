@@ -14453,6 +14453,9 @@ define('vietnam-address:libs/admin-unit', [], function () {
             let matchedCity = rawData.filter(function (city) {
                 return city[1] === cityName;
             })[0];
+            if (!matchedCity) {
+                return [];
+            }
             return matchedCity[4].map(function (district) {
                 return district[1];
             });
@@ -14463,11 +14466,15 @@ define('vietnam-address:libs/admin-unit', [], function () {
             let matchedCity = rawData.filter(function (city) {
                 return city[1] === cityName;
             })[0];
-
+            if (!matchedCity) {
+                return [];
+            }
             let matchedDistrict = matchedCity[4].filter(function (district) {
                 return district[1] === districtName;
             })[0];
-
+            if (!matchedDistrict) {
+                return [];
+            };
             return matchedDistrict[4].map(function (ward) {
                 return ward[1];
             });

@@ -1,5 +1,12 @@
 define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'views/fields/varchar', 'vietnam-address:libs/admin-unit'], function (Dep, Varchar, AdminUnit) {
 
+    const EditStages = {
+        Defaut: Symbol("default"),
+        SelectCity: Symbol("selectCity"),
+        SelectDistrict: Symbol("selectDistrict"),
+    };
+
+
     /**
      * An address field.
      *
@@ -24,6 +31,11 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
             'required',
             'pattern',
         ],
+
+        /**
+         * 
+         */
+        currentEditingStage: EditStages.Defaut,
 
         /**
          * @inheritDoc
@@ -67,18 +79,35 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
             }
 
             if (this.isEditMode()) {
+                console.log('this.currentEditingStage', this.currentEditingStage);
+                if (this.currentEditingStage != EditStages.Defaut) {
+                    this.$street = this.$el.find('[data-name="' + this.streetField + '"]');
+                    this.$city = this.$el.find('[data-name="' + this.cityField + '"]');
+                    this.$district = this.$el.find('[data-name="' + this.districtField + '"]');
+                    this.$ward = this.$el.find('[data-name="' + this.wardField + '"]');
+
+                    data.streetValue = this.$street.val();
+                    data.cityValue = this.$city.val();
+                    data.districtValue = this.$district.val();
+                    data.wardValue = this.$ward.val();
+                }
+
+                if (this.currentEditingStage == EditStages.SelectCity) {
+                    data.districtValue = '';
+                }
+
+                if (this.currentEditingStage == EditStages.SelectDistrict) {
+                    data.wardValue = '';
+                }
                 data.streetMaxLength = this.streetMaxLength;
                 data.cityMaxLength = this.cityMaxLength;
                 data.districtMaxLength = this.districtMaxLength;
                 data.wardMaxLength = this.wardMaxLength;
                 data.cityOptions = AdminUnit.getCityList();
-                console.log(data.cityOptions);
                 data.districtOptions = AdminUnit.getDistrictListOfCity(data.cityValue);
-                console.log(data.districtOptions);
                 data.wardOptions = AdminUnit.getWardListOfDistrict(data.cityValue, data.districtValue);
-                console.log(data.wardOptions);
+                this.currentEditingStage = EditStages.Defaut;
             }
-
             return data;
         },
 
@@ -149,8 +178,8 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
                 }
 
                 if (wardValue) {
-                    if (cityValue || stateValue) {
-                        html += ' ';
+                    if (cityValue || districtValue) {
+                        html += ', ';
                     }
                     html += wardValue;
                 }
@@ -186,21 +215,21 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
                     this.trigger('change');
                 });
 
-
                 this.$city.on('change', () => {
+                    this.currentEditingStage = EditStages.SelectCity;
+                    this.reRender();
                     this.trigger('change');
                 });
 
                 this.$district.on('change', () => {
+                    this.currentEditingStage = EditStages.SelectDistrict;
+                    this.reRender();
                     this.trigger('change');
                 });
 
                 this.$ward.on('change', () => {
                     this.trigger('change');
                 });
-
-
-
 
 
                 this.controlStreetTextareaHeight();
@@ -305,15 +334,10 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
         fetch: function () {
             var data = {};
 
-            console.log('streetField')
             data[this.streetField] = this.$street.val().toString().trim();
-            console.log('cityField')
             data[this.cityField] = this.$city.val().toString().trim();
-            console.log('districtField')
             data[this.districtField] = this.$district.val().toString().trim();
-            console.log('wardField')
             data[this.wardField] = this.$ward.val().toString().trim();
-            console.log('all field')
 
             let attributeList = [
                 this.streetField,
