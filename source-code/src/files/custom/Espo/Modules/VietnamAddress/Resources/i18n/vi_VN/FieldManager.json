@@ -1,0 +1,14 @@
+{
+    "fieldParts": {
+        "vietnam-address": {
+            "street": "Đường, phố",
+            "city": "Tỉnh, Thành phố",
+            "district": "Quận, huyện",
+            "ward": "Phường, xã",
+            "map": "Map"
+        }
+    },
+    "fieldInfo": {
+        "vietnam-address": "A Vietnam address with street, city, district and ward."
+    }
+}
