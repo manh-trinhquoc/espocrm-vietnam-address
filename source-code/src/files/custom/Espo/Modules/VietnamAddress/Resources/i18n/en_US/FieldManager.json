@@ -1,0 +1,14 @@
+{
+    "fieldParts": {
+        "vietnam-address": {
+            "street": "Street",
+            "city": "City",
+            "district": "District",
+            "ward": "Ward",
+            "map": "Map"
+        }
+    },
+    "fieldInfo": {
+        "vietnam-address": "A Vietnam address with street, city, district and ward."
+    }
+}
