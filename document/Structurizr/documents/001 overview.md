@@ -28,6 +28,9 @@
 # Triển khai frontend
 
 - Tham khảo trường address
+- Can thiệp vào hàm data của view để chỉnh sửa dữ liệu show cho user.
+- reRender mỗi khi đổi thông tin tỉnh, thành phố -> quận, huyện -> phường, xã
+- dữ liệu hành chính lưu vào class riêng kèm theo các hàm lấy dữ liệu: ` lib:admin-unit.js  `
 
 # Tham khảo
 - skipOrmDefs, valueFactoryClassName and attributeExtractorClassName https://forum.espocrm.com/forum/developer-help/84500-metadata-fields-in-espocrm
