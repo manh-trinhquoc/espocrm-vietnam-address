@@ -107,6 +107,12 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
                 data.districtOptions = AdminUnit.getDistrictListOfCity(data.cityValue);
                 data.wardOptions = AdminUnit.getWardListOfDistrict(data.cityValue, data.districtValue);
                 this.currentEditingStage = EditStages.Defaut;
+
+                this._templator.getTemplate('vietnam-address:fields/address/edit/test-raw-html', {}, false, template => {
+                    data.testRawHtml = template({
+                        testData: "manhtq"
+                    });
+                });
             }
             return data;
         },
@@ -229,6 +235,11 @@ define('vietnam-address:views/fields/vietnam-address', ['views/fields/base', 'vi
 
                 this.$ward.on('change', () => {
                     this.trigger('change');
+                    this._templator.getTemplate('vietnam-address:fields/address/edit/test-raw-html', {}, false, template => {
+                        this.$street.val(template({
+                            testData: "manhtq"
+                        }))
+                    });
                 });
 
 

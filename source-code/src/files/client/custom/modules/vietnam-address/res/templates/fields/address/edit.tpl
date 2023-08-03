@@ -36,4 +36,5 @@
 			{{/each}}
 		</select>
 	</div>
+	{{{ testRawHtml }}}
 </div>
