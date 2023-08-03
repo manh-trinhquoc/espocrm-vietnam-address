@@ -1,0 +1,13 @@
+{
+    "module": "VietnamAddress",
+    "name": "Vietnam Address",
+    "description": "Custom field address for Vietnam",
+    "author": "manhtq",
+    "bundled": false,
+    "acceptableVersions": [
+        ">=7.3.0"
+    ],
+    "php": [
+        ">=7.2"
+    ]
+}

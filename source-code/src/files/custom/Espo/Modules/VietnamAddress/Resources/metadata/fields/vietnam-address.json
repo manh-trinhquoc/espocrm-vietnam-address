@@ -1,0 +1,59 @@
+{
+    "view": "vietnam-address:views/fields/vietnam-address",
+    "actualFields": [
+        "street",
+        "city",
+        "district",
+        "ward"
+    ],
+    "fields": {
+        "street": {
+            "type": "text",
+            "maxLength": 255,
+            "dbType": "varchar"
+        },
+        "city": {
+            "type": "varchar",
+            "trim": true,
+            "maxLength": 25,
+            "view": "vietnam-address:views/fields/vietnam-address-city",
+            "customizationOptionsDisabled": true,
+            "pattern": "$noBadCharacters"
+        },
+        "district": {
+            "type": "varchar",
+            "trim": true,
+            "maxLength": 25,
+            "customizationOptionsDisabled": true,
+            "pattern": "$noBadCharacters"
+        },
+        "ward": {
+            "type": "varchar",
+            "trim": true,
+            "maxLength": 25,
+            "customizationOptionsDisabled": true,
+            "pattern": "$noBadCharacters"
+        },
+        "map": {
+            "type": "map",
+            "notStorable": true,
+            "readOnly": true,
+            "layoutListDisabled": true,
+            "provider": "Google",
+            "height": 300,
+            "exportDisabled": true,
+            "importDisabled": true
+        }
+    },
+    "params": [{
+        "name": "viewMap",
+        "type": "bool"
+    }],
+    "notMergeable": true,
+    "notCreatable": false,
+    "filter": true,
+    "skipOrmDefs": true,
+    "personalData": true,
+    "valueFactoryClassName": "Espo\\Modules\\VietnamAddress\\Field\\VietnamAddress\\AddressFactory",
+    "attributeExtractorClassName": "Espo\\Modules\\VietnamAddress\\Field\\VietnamAddress\\AddressAttributeExtractor"
+}

@@ -12,7 +12,7 @@
 
 1. ` docker-compose up ` and check localhost:8080
 
-### ref
+### Ref
 
 1. [Structurizr help](https://structurizr.com/help)
 2. [Structurizr lite](https://structurizr.com/share/76352/documentation#overview)
@@ -21,7 +21,7 @@
 5. https://viblo.asia/p/mo-hinh-hoa-kien-truc-phan-mem-voi-c4-vyDZO1vQ5wj
 6. https://appsindie.com/tao-tai-lieu-thiet-ke-hoan-chinh-voi-arc42/
 
-## coding
+## Coding
 - write code in folder source-code
 
 1. first time
